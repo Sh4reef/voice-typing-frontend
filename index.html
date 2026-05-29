@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎙️</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>VoiceTyping — Universal Voice-to-Text Overlay Engine</title>
+    <meta name="description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
+    <meta name="keywords" content="voice typing, speech to text, dictation, rust, tauri, whisper ai, local whisper, rsi prevention, universal text overlay" />
+    <meta name="author" content="VoiceTyping Team" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VoiceTyping — Universal Voice-to-Text Overlay Engine" />
+    <meta property="og:description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
+    <meta property="og:url" content="https://voicetyping.ai" />
+    <meta property="og:image" content="https://voicetyping.ai/social-preview.jpg" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VoiceTyping — Universal Voice-to-Text Overlay Engine" />
+    <meta name="twitter:description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    
+    <!-- Decorative Ambient Blobs -->
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+      <div class="header-container">
+        <a href="#" class="logo" id="header-logo">
+          <img src="/logo.svg" alt="VoiceTyping Logo" class="logo-img" />
+          <span class="logo-text">Voice<span class="logo-accent">Typing</span></span>
+        </a>
+        <nav class="nav" aria-label="Main Navigation">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#engine-comparison" class="nav-link">Dual-Engine</a>
+          <a href="#security" class="nav-link">Security</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#download" class="nav-link">Download</a>
+        </nav>
+        <div class="header-cta-group">
+          <a href="#download" class="btn btn-secondary btn-sm">Get App</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      
+      <!-- Hero Section -->
+      <section class="section hero-section" id="hero">
+        <div class="container hero-grid">
+          
+          <!-- Hero Copy -->
+          <div class="hero-content">
+            <div class="badge">Powered by Rust & Whisper AI</div>
+            <h1 class="hero-title">Type Everywhere with Your Voice.</h1>
+            <p class="hero-subtitle">
+              An ultra-minimal, universal voice-to-text overlay engine. Completely local, private by default, and active across all apps with a single keystroke.
+            </p>
+            
+            <!-- Hero CTAs -->
+            <div class="hero-cta-wrapper">
+              <a href="#download" class="btn btn-primary btn-lg" id="hero-cta-button">
+                <span class="btn-text">Download Free</span>
+                <span class="btn-subtext" id="detected-os-label">Detecting OS...</span>
+              </a>
+              <div class="alt-downloads">
+                or get for <a href="#download-mac" class="alt-link">macOS</a>, <a href="#download-win" class="alt-link">Windows</a>, or <a href="#download-linux" class="alt-link">Linux</a>
+              </div>
+            </div>
+
+            <!-- Trust Stats -->
+            <div class="trust-stats">
+              <div class="stat-item">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Offline Privacy</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-value">~142MB</span>
+                <span class="stat-label">Model Size</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-value">&lt; 15ms</span>
+                <span class="stat-label">OS Inject Latency</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Graphic & Live Sandbox -->
+          <div class="hero-sandbox" aria-label="Interactive App Demonstration">
+            <div class="editor-mockup">
+              <div class="editor-header">
+                <div class="editor-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="editor-title">main.py — VoiceTyping Sandbox</div>
+              </div>
+              <div class="editor-body">
+                <pre class="code-editor"><span class="code-comment"># Click widget below or press Ctrl+Shift+Space to start dictation</span>
+<span class="code-keyword">import</span> speech_engine
+
+<span class="code-keyword">def</span> <span class="code-function">transcribe_demo</span>():
+    print(<span class="code-string">"Listening..."</span>)
+    <span class="code-comment"># Your spoken words inject here:</span>
+    <span class="typing-target" id="typing-target"></span><span class="typing-cursor">|</span></pre>
+              </div>
+
+              <!-- Draggable / Floating Overlay Widget Simulator -->
+              <div class="widget-capsule-wrapper" id="draggable-widget">
+                <div class="widget-drag-handle" title="Drag me!">⋮⋮</div>
+                <div class="widget-pill" id="widget-pill-el">
+                  <canvas id="waveform-canvas" width="84" height="28"></canvas>
+                </div>
+                <div class="widget-tooltip">Click to Record / Ctrl+Shift+Space</div>
+              </div>
+            </div>
+            
+            <!-- Controls to trigger the simulator -->
+            <div class="simulator-controls">
+              <button class="btn btn-secondary btn-sm" id="btn-toggle-demo">
+                <span class="btn-icon">🎙️</span> Start Demo Dictation
+              </button>
+              <div class="demo-status-text" id="demo-status-text">Status: Idle</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- The Minimalist UI Experience -->
+      <section class="section features-section" id="features">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2 class="section-title">The Zero-Footprint UI Overlay</h2>
+            <p class="section-desc">No bulky windows, complex sidebars, or screen clutter. VoiceTyping sits quietly in your system tray and overlays a mini waveform indicator only when listening.</p>
+          </div>
+          
+          <div class="features-grid">
+            <!-- Card 1 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper cyan-glow">
+                <span class="feature-icon">⚡</span>
+              </div>
+              <h3 class="feature-card-title">Universal Injection</h3>
+              <p class="feature-card-text">
+                Transcribed text types out instantly directly at your active cursor. Works inside VS Code, Google Docs, Slack, Terminal, or any other app using native OS system keystroke triggers.
+              </p>
+            </div>
+            <!-- Card 2 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper purple-glow">
+                <span class="feature-icon">🎛️</span>
+              </div>
+              <h3 class="feature-card-title">Positionless Overlay</h3>
+              <p class="feature-card-text">
+                An 84x28 pixel draggable capsule that responds instantly. Drag it anywhere on your screen. It remembers its exact coordinate position across application launches.
+              </p>
+            </div>
+            <!-- Card 3 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper pink-glow">
+                <span class="feature-icon">⌨️</span>
+              </div>
+              <h3 class="feature-card-title">Global Hotkey Responsiveness</h3>
+              <p class="feature-card-text">
+                Deep system integration. Toggle recording globally with <code>Ctrl + Shift + Space</code>. Cancel transcription immediately and clear buffers using the <code>Escape</code> key.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Dual-Engine Deep Dive -->
+      <section class="section engine-section" id="engine-comparison">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2 class="section-title">Interactive Dual-Engine Architecture</h2>
+            <p class="section-desc">Choose complete offline data security or premium cloud scaling parameters based on your work environment.</p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">Feature Metric</th>
+                  <th scope="col" class="highlight-free">Local Engine (Free Tier)</th>
+                  <th scope="col" class="highlight-premium">Cloud Engine (Premium Tier)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Privacy Footprint</th>
+                  <td>
+                    <span class="label-success">100% Offline</span>
+                    <p class="table-subtext">Zero telemetry. Audio is processed directly in local memory and instantly discarded.</p>
+                  </td>
+                  <td>
+                    <span class="label-warning">Secure Cloud Routing</span>
+                    <p class="table-subtext">TLS 1.3 encrypted streaming. Zero caching policy on cloud servers.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Supported Languages</th>
+                  <td>
+                    <strong>English Optimized</strong>
+                    <p class="table-subtext">Includes custom vocabularies and shorthand expansions for coders.</p>
+                  </td>
+                  <td>
+                    <strong>99+ Languages</strong>
+                    <p class="table-subtext">Seamless multilingual dictation with auto-language detection.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">On-Device Profile</th>
+                  <td>
+                    <strong>Whisper CPP Binary</strong>
+                    <p class="table-subtext">Uses ~142MB quantized Whisper model. Runs efficiently on CPU/GPU.</p>
+                  </td>
+                  <td>
+                    <strong>Zero Overhead</strong>
+                    <p class="table-subtext">No disk footprint or model file downloads required. Ideal for older hardware.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Operational Cost</th>
+                  <td>
+                    <span class="cost-value">Free Forever</span>
+                    <p class="table-subtext">Download the application and run indefinitely without a billing account.</p>
+                  </td>
+                  <td>
+                    <span class="cost-value">SaaS Subscription</span>
+                    <p class="table-subtext">Authenticated instantly using Magic Link verification codes.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security & Permissions Promise -->
+      <section class="section security-section" id="security">
+        <div class="container">
+          <div class="security-grid">
+            <div class="security-content">
+              <div class="badge badge-warning">Hardware Security</div>
+              <h2 class="section-title">Our Security & Permissions Promise</h2>
+              <p class="section-desc">
+                Operating system overlay engines require specific native access privileges. Here is a clear breakdown of why VoiceTyping invokes these APIs:
+              </p>
+              
+              <ul class="permission-list">
+                <li>
+                  <span class="permission-icon">🔐</span>
+                  <div>
+                    <strong>Accessibility Frameworks:</strong>
+                    <p class="permission-text">Required to insert text directly into active windows. We trigger macOS <code>Accessibility/CGEventPost</code>, Windows <code>Win32_UI_Input</code>, and Linux <code>X11/xtst</code> APIs to emulate standard keyboard typing actions safely.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="permission-icon">🎙️</span>
+                  <div>
+                    <strong>Microphone Hardware Access:</strong>
+                    <p class="permission-text">We initialize hardware recording buffers strictly during the "Recording" state. The audio stream is compiled directly into memory array blocks, passing immediately to the transcriber without saving any audio files to disk.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="permission-icon">🚫</span>
+                  <div>
+                    <strong>Zero Telemetry (Free Tier):</strong>
+                    <p class="permission-text">The local client has no networking capabilities compiled for local engine actions. Absolutely no usage statistics, voice signatures, or keystrokes are transmitted.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="security-visual">
+              <div class="security-card-mockup">
+                <div class="mock-lock-header">
+                  <span class="shield-icon">🛡️</span>
+                  <h3>Local Data Integrity Flow</h3>
+                </div>
+                <div class="flow-step">
+                  <div class="flow-bullet">1</div>
+                  <div class="flow-desc">
+                    <strong>Mic Input:</strong> Capture raw wave array stream in memory.
+                  </div>
+                </div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">
+                  <div class="flow-bullet">2</div>
+                  <div class="flow-desc">
+                    <strong>Whisper.cpp (Local CPU/GPU):</strong> Secure local processing via ~142MB binary model.
+                  </div>
+                </div>
+                <div class="flow-connector"></div>
+                <div class="flow-step">
+                  <div class="flow-bullet">3</div>
+                  <div class="flow-desc">
+                    <strong>OS Keyboard API:</strong> Direct system injection at active cursor.
+                  </div>
+                </div>
+                <div class="flow-status">
+                  <span class="pulse-dot-green"></span> Internet connection bypassed completely
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing / Lead Capture / Magic Link Auth -->
+      <section class="section pricing-section" id="pricing">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2 class="section-title">Simple Transparent Pricing</h2>
+            <p class="section-desc">Unlock premium multilingual transcription. Authenticate instantly using a secure email magic link code.</p>
+          </div>
+
+          <div class="pricing-cards-wrapper">
+            <!-- Free Card -->
+            <div class="pricing-card">
+              <h3 class="pricing-tier-name">Local Core</h3>
+              <div class="pricing-price">$0<span class="price-period">/ forever</span></div>
+              <p class="pricing-desc">Private offline dictation using quantized models directly on your hardware.</p>
+              <ul class="pricing-features">
+                <li>✔️ High-fidelity local English model</li>
+                <li>✔️ Unlimited universal dictation</li>
+                <li>✔️ Draggable status capsule</li>
+                <li>✔️ Custom keyboard shortcuts</li>
+                <li>✔️ 100% network isolation</li>
+              </ul>
+              <a href="#download" class="btn btn-secondary btn-full">Download Now</a>
+            </div>
+
+            <!-- Premium Card -->
+            <div class="pricing-card premium-card">
+              <div class="premium-badge">Most Popular</div>
+              <h3 class="pricing-tier-name">Cloud Premium</h3>
+              <div class="pricing-price">$4.99<span class="price-period">/ month</span></div>
+              <p class="pricing-desc">Ultra-fast, professional multilingual transcribing with cloud scaling fallbacks.</p>
+              
+              <ul class="pricing-features">
+                <li>✔️ 99+ Languages supported</li>
+                <li>✔️ Ultra-fast cloud transcription</li>
+                <li>✔️ Automatic fallback processing</li>
+                <li>✔️ Zero local CPU overhead</li>
+                <li>✔️ Priority support</li>
+              </ul>
+              
+              <div class="auth-box-container">
+                <button class="btn btn-primary btn-full" id="btn-subscribe-premium">Subscribe to Premium</button>
+                <p class="auth-form-help text-center" style="margin-top: 16px; font-size: 0.85rem;">
+                  Activate instantly inside the desktop app settings using your subscriber email.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multi-Platform Distribution Block -->
+      <section class="section download-section" id="download">
+        <div class="container">
+          <div class="section-header text-center">
+            <h2 class="section-title">Download VoiceTyping</h2>
+            <p class="section-desc">Select the pre-compiled binary package matching your workstation architecture.</p>
+          </div>
+
+          <div class="download-grid">
+            <!-- macOS -->
+            <div class="download-card" id="download-mac">
+              <div class="os-icon">🍎</div>
+              <h3>macOS</h3>
+              <p class="os-version">Universal Binary (dmg / app)</p>
+              <p class="os-compat">Supports Apple Silicon M1/M2/M3 & Intel Chips. Requires macOS 10.15+</p>
+              <a href="#mock-dmg-download" class="btn btn-primary download-trigger" data-platform="mac">Download Universal .dmg</a>
+            </div>
+
+            <!-- Windows -->
+            <div class="download-card" id="download-win">
+              <div class="os-icon">🪟</div>
+              <h3>Windows</h3>
+              <p class="os-version">Signed MSI Installer (msi)</p>
+              <p class="os-compat">Supports standard Win32 64-bit platforms. Fully backgrounded tray utility.</p>
+              <a href="#mock-msi-download" class="btn btn-primary download-trigger" data-platform="win">Download Installer .msi</a>
+            </div>
+
+            <!-- Linux -->
+            <div class="download-card" id="download-linux">
+              <div class="os-icon">🐧</div>
+              <h3>Linux</h3>
+              <p class="os-version">AppImage / Debian Package (deb)</p>
+              <p class="os-compat">Compiled against modern X11/glibc libraries. Works with universal desktop managers.</p>
+              <div class="btn-group-row">
+                <a href="#mock-appimage-download" class="btn btn-primary download-trigger" data-platform="linux" data-format="appimage">Get .AppImage</a>
+                <a href="#mock-deb-download" class="btn btn-secondary download-trigger" data-platform="linux" data-format="deb">Get .deb</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="/logo.svg" alt="VoiceTyping Logo" class="logo-img" />
+            <span class="logo-text">Voice<span class="logo-accent">Typing</span></span>
+          </div>
+          <p class="footer-tagline">Secure dictation across all application editors. Powered by Tauri and Whisper AI.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#engine-comparison">Dual-Engine</a>
+          <a href="#security">Permissions</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#download">Downloads</a>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 VoiceTyping. All rights reserved. Secure, private on-device processing.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
