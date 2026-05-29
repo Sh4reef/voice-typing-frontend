@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎙️</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
@@ -46,7 +46,6 @@
           <a href="#features" class="nav-link">Features</a>
           <a href="#engine-comparison" class="nav-link">Dual-Engine</a>
           <a href="#security" class="nav-link">Security</a>
-          <a href="#pricing" class="nav-link">Pricing</a>
           <a href="#download" class="nav-link">Download</a>
         </nav>
         <div class="header-cta-group">
@@ -109,16 +108,15 @@
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
                 </div>
-                <div class="editor-title">main.py — VoiceTyping Sandbox</div>
+                <div class="editor-title">gemini-cli — VoiceTyping Session</div>
               </div>
               <div class="editor-body">
-                <pre class="code-editor"><span class="code-comment"># Click widget below or press Ctrl+Shift+Space to start dictation</span>
-<span class="code-keyword">import</span> speech_engine
+                <pre class="code-editor"><span class="code-comment"># Press Ctrl+Alt+/ or click the widget tray to toggle input</span>
+<span class="code-keyword">$</span> gemini prompt --stream --local
+<span class="code-string">[System]:</span> Initializing Whisper AI Engine context link...
+<span class="code-string">[System]:</span> Listening for user vocal overlay streaming...
 
-<span class="code-keyword">def</span> <span class="code-function">transcribe_demo</span>():
-    print(<span class="code-string">"Listening..."</span>)
-    <span class="code-comment"># Your spoken words inject here:</span>
-    <span class="typing-target" id="typing-target"></span><span class="typing-cursor">|</span></pre>
+<span class="typing-target" id="typing-target"></span><span class="typing-cursor">|</span></pre>
               </div>
 
               <!-- Draggable / Floating Overlay Widget Simulator -->
@@ -127,7 +125,7 @@
                 <div class="widget-pill" id="widget-pill-el">
                   <canvas id="waveform-canvas" width="84" height="28"></canvas>
                 </div>
-                <div class="widget-tooltip">Click to Record / Ctrl+Shift+Space</div>
+                <div class="widget-tooltip">Click to Record / Ctrl+Alt+/</div>
               </div>
             </div>
             
@@ -179,7 +177,7 @@
               </div>
               <h3 class="feature-card-title">Global Hotkey Responsiveness</h3>
               <p class="feature-card-text">
-                Deep system integration. Toggle recording globally with <code>Ctrl + Shift + Space</code>. Cancel transcription immediately and clear buffers using the <code>Escape</code> key.
+                Deep system integration. Toggle recording globally with <code>Ctrl + Alt + /</code>. Cancel transcription immediately and clear buffers using the <code>Escape</code> key.
               </p>
             </div>
           </div>
@@ -325,56 +323,6 @@
         </div>
       </section>
 
-      <!-- Pricing / Lead Capture / Magic Link Auth -->
-      <section class="section pricing-section" id="pricing">
-        <div class="container">
-          <div class="section-header text-center">
-            <h2 class="section-title">Simple Transparent Pricing</h2>
-            <p class="section-desc">Unlock premium multilingual transcription. Authenticate instantly using a secure email magic link code.</p>
-          </div>
-
-          <div class="pricing-cards-wrapper">
-            <!-- Free Card -->
-            <div class="pricing-card">
-              <h3 class="pricing-tier-name">Local Core</h3>
-              <div class="pricing-price">$0<span class="price-period">/ forever</span></div>
-              <p class="pricing-desc">Private offline dictation using quantized models directly on your hardware.</p>
-              <ul class="pricing-features">
-                <li>✔️ High-fidelity local English model</li>
-                <li>✔️ Unlimited universal dictation</li>
-                <li>✔️ Draggable status capsule</li>
-                <li>✔️ Custom keyboard shortcuts</li>
-                <li>✔️ 100% network isolation</li>
-              </ul>
-              <a href="#download" class="btn btn-secondary btn-full">Download Now</a>
-            </div>
-
-            <!-- Premium Card -->
-            <div class="pricing-card premium-card">
-              <div class="premium-badge">Most Popular</div>
-              <h3 class="pricing-tier-name">Cloud Premium</h3>
-              <div class="pricing-price">$4.99<span class="price-period">/ month</span></div>
-              <p class="pricing-desc">Ultra-fast, professional multilingual transcribing with cloud scaling fallbacks.</p>
-              
-              <ul class="pricing-features">
-                <li>✔️ 99+ Languages supported</li>
-                <li>✔️ Ultra-fast cloud transcription</li>
-                <li>✔️ Automatic fallback processing</li>
-                <li>✔️ Zero local CPU overhead</li>
-                <li>✔️ Priority support</li>
-              </ul>
-              
-              <div class="auth-box-container">
-                <button class="btn btn-primary btn-full" id="btn-subscribe-premium">Subscribe to Premium</button>
-                <p class="auth-form-help text-center" style="margin-top: 16px; font-size: 0.85rem;">
-                  Activate instantly inside the desktop app settings using your subscriber email.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Multi-Platform Distribution Block -->
       <section class="section download-section" id="download">
         <div class="container">
@@ -433,7 +381,6 @@
           <a href="#features">Features</a>
           <a href="#engine-comparison">Dual-Engine</a>
           <a href="#security">Permissions</a>
-          <a href="#pricing">Pricing</a>
           <a href="#download">Downloads</a>
         </div>
         <div class="footer-bottom">

@@ -17,11 +17,11 @@ let initialY;
 let xOffset = 0;
 let yOffset = 0;
 
-// Text to inject during sandbox simulation
+// Text to inject during sandbox simulation (Updated for Gemini CLI presentation context)
 const SIMULATED_TEXT = `
-    audio = speech_engine.capture()
-    text = speech_engine.transcribe(audio)
-    print(f"Injected text: {text}")
+> Create a fast, lightweight asynchronous HTTP server wrapper utilizing Tokio and Rust with pre-configured health-check diagnostic routes...
+
+[Gemini]: Processing request parameters over local execution environment...
 `;
 
 // --- DOM ELEMENTS ---
@@ -34,15 +34,13 @@ const demoStatusText = document.getElementById('demo-status-text');
 const typingTarget = document.getElementById('typing-target');
 const widgetPillEl = document.getElementById('widget-pill-el');
 
-// Auth Form Elements
-const btnSubscribePremium = document.getElementById('btn-subscribe-premium');
+
 
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
   detectClientOS();
   initWaveform();
   initDraggable();
-  initAuthHandlers();
 });
 
 // --- 1. CLIENT OS DETECTION ---
@@ -88,8 +86,8 @@ function initWaveform() {
 
   // Keyboard shortcut listener inside mockup container or document
   document.addEventListener('keydown', (e) => {
-    // Check for Ctrl + Shift + Space
-    if (e.ctrlKey && e.shiftKey && e.code === 'Space') {
+    // Check for Ctrl + Alt + /
+    if (e.ctrlKey && e.altKey && (e.key === '/' || e.code === 'Slash')) {
       e.preventDefault();
       toggleDemo();
     }
@@ -264,11 +262,4 @@ function drag(e) {
   draggableWidget.style.transform = `translate3d(${dragX}px, ${dragY}px, 0)`;
 }
 
-// --- 4. AUTH & SUBSCRIPTION HANDLING ---
-function initAuthHandlers() {
-  if (btnSubscribePremium) {
-    btnSubscribePremium.addEventListener('click', () => {
-      alert('Mock payment process: Redirecting to Stripe checkout portal for Cloud Premium ($4.99/mo)...');
-    });
-  }
-}
+
