@@ -49,15 +49,15 @@ function detectClientOS() {
   
   if (ua.includes('mac')) {
     activePlatform = 'mac';
-    detectedOsLabel.textContent = 'Download for macOS (Universal)';
+    detectedOsLabel.textContent = 'Download for macOS (ARM / x64)';
     heroCtaButton.href = '#download-mac';
   } else if (ua.includes('win')) {
     activePlatform = 'win';
-    detectedOsLabel.textContent = 'Download for Windows (.msi)';
+    detectedOsLabel.textContent = 'Download for Windows (ARM / x64)';
     heroCtaButton.href = '#download-win';
   } else if (ua.includes('linux')) {
     activePlatform = 'linux';
-    detectedOsLabel.textContent = 'Download for Linux (.AppImage)';
+    detectedOsLabel.textContent = 'Download for Linux (ARM / x64)';
     heroCtaButton.href = '#download-linux';
   } else {
     activePlatform = 'mac'; // Fallback

@@ -43,9 +43,7 @@
           <span class="logo-text">Voice<span class="logo-accent">Typing</span></span>
         </a>
         <nav class="nav" aria-label="Main Navigation">
-          <a href="#features" class="nav-link">Features</a>
           <a href="#engine-comparison" class="nav-link">Dual-Engine</a>
-          <a href="#security" class="nav-link">Security</a>
           <a href="#download" class="nav-link">Download</a>
         </nav>
         <div class="header-cta-group">
@@ -141,48 +139,6 @@
         </div>
       </section>
 
-      <!-- The Minimalist UI Experience -->
-      <section class="section features-section" id="features">
-        <div class="container">
-          <div class="section-header text-center">
-            <h2 class="section-title">The Zero-Footprint UI Overlay</h2>
-            <p class="section-desc">No bulky windows, complex sidebars, or screen clutter. VoiceTyping sits quietly in your system tray and overlays a mini waveform indicator only when listening.</p>
-          </div>
-          
-          <div class="features-grid">
-            <!-- Card 1 -->
-            <div class="feature-card">
-              <div class="feature-icon-wrapper cyan-glow">
-                <span class="feature-icon">⚡</span>
-              </div>
-              <h3 class="feature-card-title">Universal Injection</h3>
-              <p class="feature-card-text">
-                Transcribed text types out instantly directly at your active cursor. Works inside VS Code, Google Docs, Slack, Terminal, or any other app using native OS system keystroke triggers.
-              </p>
-            </div>
-            <!-- Card 2 -->
-            <div class="feature-card">
-              <div class="feature-icon-wrapper purple-glow">
-                <span class="feature-icon">🎛️</span>
-              </div>
-              <h3 class="feature-card-title">Positionless Overlay</h3>
-              <p class="feature-card-text">
-                An 84x28 pixel draggable capsule that responds instantly. Drag it anywhere on your screen. It remembers its exact coordinate position across application launches.
-              </p>
-            </div>
-            <!-- Card 3 -->
-            <div class="feature-card">
-              <div class="feature-icon-wrapper pink-glow">
-                <span class="feature-icon">⌨️</span>
-              </div>
-              <h3 class="feature-card-title">Global Hotkey Responsiveness</h3>
-              <p class="feature-card-text">
-                Deep system integration. Toggle recording globally with <code>Ctrl + Alt + /</code>. Cancel transcription immediately and clear buffers using the <code>Escape</code> key.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Technical Dual-Engine Deep Dive -->
       <section class="section engine-section" id="engine-comparison">
@@ -252,76 +208,6 @@
         </div>
       </section>
 
-      <!-- Security & Permissions Promise -->
-      <section class="section security-section" id="security">
-        <div class="container">
-          <div class="security-grid">
-            <div class="security-content">
-              <div class="badge badge-warning">Hardware Security</div>
-              <h2 class="section-title">Our Security & Permissions Promise</h2>
-              <p class="section-desc">
-                Operating system overlay engines require specific native access privileges. Here is a clear breakdown of why VoiceTyping invokes these APIs:
-              </p>
-              
-              <ul class="permission-list">
-                <li>
-                  <span class="permission-icon">🔐</span>
-                  <div>
-                    <strong>Accessibility Frameworks:</strong>
-                    <p class="permission-text">Required to insert text directly into active windows. We trigger macOS <code>Accessibility/CGEventPost</code>, Windows <code>Win32_UI_Input</code>, and Linux <code>X11/xtst</code> APIs to emulate standard keyboard typing actions safely.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="permission-icon">🎙️</span>
-                  <div>
-                    <strong>Microphone Hardware Access:</strong>
-                    <p class="permission-text">We initialize hardware recording buffers strictly during the "Recording" state. The audio stream is compiled directly into memory array blocks, passing immediately to the transcriber without saving any audio files to disk.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="permission-icon">🚫</span>
-                  <div>
-                    <strong>Zero Telemetry (Free Tier):</strong>
-                    <p class="permission-text">The local client has no networking capabilities compiled for local engine actions. Absolutely no usage statistics, voice signatures, or keystrokes are transmitted.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div class="security-visual">
-              <div class="security-card-mockup">
-                <div class="mock-lock-header">
-                  <span class="shield-icon">🛡️</span>
-                  <h3>Local Data Integrity Flow</h3>
-                </div>
-                <div class="flow-step">
-                  <div class="flow-bullet">1</div>
-                  <div class="flow-desc">
-                    <strong>Mic Input:</strong> Capture raw wave array stream in memory.
-                  </div>
-                </div>
-                <div class="flow-connector"></div>
-                <div class="flow-step">
-                  <div class="flow-bullet">2</div>
-                  <div class="flow-desc">
-                    <strong>Whisper.cpp (Local CPU/GPU):</strong> Secure local processing via ~142MB binary model.
-                  </div>
-                </div>
-                <div class="flow-connector"></div>
-                <div class="flow-step">
-                  <div class="flow-bullet">3</div>
-                  <div class="flow-desc">
-                    <strong>OS Keyboard API:</strong> Direct system injection at active cursor.
-                  </div>
-                </div>
-                <div class="flow-status">
-                  <span class="pulse-dot-green"></span> Internet connection bypassed completely
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Multi-Platform Distribution Block -->
       <section class="section download-section" id="download">
@@ -336,29 +222,35 @@
             <div class="download-card" id="download-mac">
               <div class="os-icon">🍎</div>
               <h3>macOS</h3>
-              <p class="os-version">Universal Binary (dmg / app)</p>
-              <p class="os-compat">Supports Apple Silicon M1/M2/M3 & Intel Chips. Requires macOS 10.15+</p>
-              <a href="#mock-dmg-download" class="btn btn-primary download-trigger" data-platform="mac">Download Universal .dmg</a>
+              <p class="os-version">Apple Silicon & Intel Binaries</p>
+              <p class="os-compat">Requires macOS 10.15+. Optimized for both ARM64 and x64 processor architectures.</p>
+              <div class="space-y-2">
+                <a href="#mock-mac-arm-download" class="btn btn-primary download-trigger" data-platform="mac" data-arch="arm">Apple Silicon</a>
+                <a href="#mock-mac-x64-download" class="btn btn-secondary download-trigger" data-platform="mac" data-arch="x64">Intel (x64)</a>
+              </div>
             </div>
 
             <!-- Windows -->
             <div class="download-card" id="download-win">
               <div class="os-icon">🪟</div>
               <h3>Windows</h3>
-              <p class="os-version">Signed MSI Installer (msi)</p>
-              <p class="os-compat">Supports standard Win32 64-bit platforms. Fully backgrounded tray utility.</p>
-              <a href="#mock-msi-download" class="btn btn-primary download-trigger" data-platform="win">Download Installer .msi</a>
+              <p class="os-version">ARM & x64 Installer Packages</p>
+              <p class="os-compat">Supports Windows 10/11. Optimized for ARM64 and standard x64 architectures.</p>
+              <div class="space-y-2">
+                <a href="#mock-win-arm-download" class="btn btn-primary download-trigger" data-platform="win" data-arch="arm">Windows (ARM64)</a>
+                <a href="#mock-win-x64-download" class="btn btn-secondary download-trigger" data-platform="win" data-arch="x64">Windows (x64)</a>
+              </div>
             </div>
 
             <!-- Linux -->
             <div class="download-card" id="download-linux">
               <div class="os-icon">🐧</div>
               <h3>Linux</h3>
-              <p class="os-version">AppImage / Debian Package (deb)</p>
-              <p class="os-compat">Compiled against modern X11/glibc libraries. Works with universal desktop managers.</p>
-              <div class="btn-group-row">
-                <a href="#mock-appimage-download" class="btn btn-primary download-trigger" data-platform="linux" data-format="appimage">Get .AppImage</a>
-                <a href="#mock-deb-download" class="btn btn-secondary download-trigger" data-platform="linux" data-format="deb">Get .deb</a>
+              <p class="os-version">ARM & x64 Packages (.deb / .AppImage)</p>
+              <p class="os-compat">Compiled against modern X11/glibc. Supports ARM64 and Intel/AMD x64 systems.</p>
+              <div class="space-y-2">
+                <a href="#mock-linux-arm-download" class="btn btn-primary download-trigger" data-platform="linux" data-arch="arm">Linux (ARM64)</a>
+                <a href="#mock-linux-x64-download" class="btn btn-secondary download-trigger" data-platform="linux" data-arch="x64">Linux (x64)</a>
               </div>
             </div>
           </div>
@@ -378,9 +270,7 @@
           <p class="footer-tagline">Secure dictation across all application editors. Powered by Tauri and Whisper AI.</p>
         </div>
         <div class="footer-links">
-          <a href="#features">Features</a>
           <a href="#engine-comparison">Dual-Engine</a>
-          <a href="#security">Permissions</a>
           <a href="#download">Downloads</a>
         </div>
         <div class="footer-bottom">
