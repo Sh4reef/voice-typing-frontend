@@ -106,7 +106,7 @@
                 <span class="btn-subtext" id="detected-os-label">Detecting OS...</span>
               </a>
               <div class="alt-downloads">
-                or get for <a href="#download-mac" class="alt-link">macOS</a>, <a href="#download-win" class="alt-link">Windows</a>, or <a href="#download-linux" class="alt-link">Linux</a>
+                or get for <a href="#download" class="alt-link">macOS</a>, <a href="#download" class="alt-link">Windows</a>, or <a href="#download" class="alt-link">Linux</a>
               </div>
             </div>
 
@@ -245,7 +245,10 @@
       <section class="section download-section" id="download">
         <div class="container">
           <div class="section-header text-center">
-            <h2 class="section-title">Download VoiceTyping</h2>
+            <h2 class="section-title">
+              Download VoiceTyping
+              <span id="download-version-tag" class="text-xs px-2.5 py-1 rounded-pill bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 ml-2 align-middle font-mono hidden"></span>
+            </h2>
             <p class="section-desc">Select the pre-compiled binary package matching your workstation architecture.</p>
           </div>
 
@@ -256,9 +259,20 @@
               <h3>macOS</h3>
               <p class="os-version">Apple Silicon & Intel Binaries</p>
               <p class="os-compat">Requires macOS 10.15+. Optimized for both ARM64 and x64 processor architectures.</p>
-              <div class="space-y-2">
-                <a href="#mock-mac-arm-download" class="btn btn-primary download-trigger" data-platform="mac" data-arch="arm">Apple Silicon</a>
-                <a href="#mock-mac-x64-download" class="btn btn-secondary download-trigger" data-platform="mac" data-arch="x64">Intel (x64)</a>
+              
+              <div class="download-options-group">
+                <div class="download-option-row">
+                  <span class="option-label">Apple Silicon (M1/M2/M3)</span>
+                  <div class="option-actions">
+                    <a href="#" class="btn btn-primary btn-sm" id="mac-aarch64-download">.dmg</a>
+                  </div>
+                </div>
+                <div class="download-option-row">
+                  <span class="option-label">Intel (x64)</span>
+                  <div class="option-actions">
+                    <a href="#" class="btn btn-secondary btn-sm" id="mac-x64-download">.dmg</a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -268,21 +282,42 @@
               <h3>Windows</h3>
               <p class="os-version">ARM & x64 Installer Packages</p>
               <p class="os-compat">Supports Windows 10/11. Optimized for ARM64 and standard x64 architectures.</p>
-              <div class="space-y-2">
-                <a href="#mock-win-arm-download" class="btn btn-primary download-trigger" data-platform="win" data-arch="arm">Windows (ARM64)</a>
-                <a href="#mock-win-x64-download" class="btn btn-secondary download-trigger" data-platform="win" data-arch="x64">Windows (x64)</a>
+              
+              <div class="download-options-group">
+                <div class="download-option-row">
+                  <span class="option-label">64-bit (x64)</span>
+                  <div class="option-actions">
+                    <a href="#" class="btn btn-primary btn-sm" id="win-x64-exe-download">.exe</a>
+                    <a href="#" class="btn btn-secondary btn-sm" id="win-x64-msi-download">.msi</a>
+                  </div>
+                </div>
+                <div class="download-option-row">
+                  <span class="option-label">ARM64</span>
+                  <div class="option-actions">
+                    <a href="#" class="btn btn-secondary btn-sm" id="win-arm64-exe-download">.exe</a>
+                    <a href="#" class="btn btn-secondary btn-sm" id="win-arm64-msi-download">.msi</a>
+                  </div>
+                </div>
+                <div class="download-option-row">
+                  <span class="option-label">32-bit (x86)</span>
+                  <div class="option-actions">
+                    <a href="#" class="btn btn-secondary btn-sm" id="win-x86-exe-download">.exe</a>
+                    <a href="#" class="btn btn-secondary btn-sm" id="win-x86-msi-download">.msi</a>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Linux -->
-            <div class="download-card" id="download-linux">
-              <div class="os-icon" loading="lazy">🐧</div>
+            <div class="download-card opacity-60 relative overflow-hidden" id="download-linux">
+              <div class="absolute top-3 right-3 text-[10px] font-bold tracking-widest text-accent-cyan uppercase px-2 py-0.5 bg-accent-cyan/10 border border-accent-cyan/20 rounded-sm">Coming Soon</div>
+              <div class="os-icon">🐧</div>
               <h3>Linux</h3>
               <p class="os-version">ARM & x64 Packages (.deb / .AppImage)</p>
-              <p class="os-compat">Compiled against modern X11/glibc. Supports ARM64 and Intel/AMD x64 systems.</p>
-              <div class="space-y-2">
-                <a href="#mock-linux-arm-download" class="btn btn-primary download-trigger" data-platform="linux" data-arch="arm">Linux (ARM64)</a>
-                <a href="#mock-linux-x64-download" class="btn btn-secondary download-trigger" data-platform="linux" data-arch="x64">Linux (x64)</a>
+              <p class="os-compat">Native Linux packages are currently under active development. Stay tuned for Debian, Ubuntu, and Arch system pre-compiled distributions.</p>
+              
+              <div class="w-full mt-auto">
+                <button class="btn btn-secondary w-full cursor-not-allowed opacity-50" disabled>Coming Soon</button>
               </div>
             </div>
           </div>

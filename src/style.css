@@ -550,14 +550,24 @@ code {
   @apply w-full py-3 px-4 text-[0.9rem];
 }
 
-.btn-group-row {
-  @apply grid grid-cols-2 gap-3 w-full;
+.download-options-group {
+  @apply w-full flex flex-col gap-2.5 mt-auto;
 }
 
-@media (max-width: 1280px) {
-  .btn-group-row {
-    @apply grid-cols-1 gap-2;
-  }
+.download-option-row {
+  @apply flex items-center justify-between w-full bg-white/[0.02] border border-glass-border rounded-sm p-3 transition-colors duration-150 hover:bg-white/[0.04];
+}
+
+.option-label {
+  @apply font-sans font-medium text-[0.8rem] text-[#e2e8f0] text-left;
+}
+
+.option-actions {
+  @apply flex gap-2;
+}
+
+.option-actions .btn {
+  @apply min-w-[64px] py-1.5 px-3 text-xs font-semibold;
 }
 
 .hidden {

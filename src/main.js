@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   detectClientOS();
   initWaveform();
   initDraggable();
+  fetchLatestVersion();
 });
 
 // --- 1. CLIENT OS DETECTION ---
@@ -50,20 +51,17 @@ function detectClientOS() {
   if (ua.includes('mac')) {
     activePlatform = 'mac';
     detectedOsLabel.textContent = 'Download for macOS (ARM / x64)';
-    heroCtaButton.href = '#download-mac';
   } else if (ua.includes('win')) {
     activePlatform = 'win';
     detectedOsLabel.textContent = 'Download for Windows (ARM / x64)';
-    heroCtaButton.href = '#download-win';
   } else if (ua.includes('linux')) {
     activePlatform = 'linux';
-    detectedOsLabel.textContent = 'Download for Linux (ARM / x64)';
-    heroCtaButton.href = '#download-linux';
+    detectedOsLabel.textContent = 'Linux support coming soon';
   } else {
     activePlatform = 'mac'; // Fallback
     detectedOsLabel.textContent = 'Download for Desktop';
-    heroCtaButton.href = '#download';
   }
+  heroCtaButton.href = '#download';
 }
 
 // --- 2. WAVEFORM SIMULATION ---
@@ -261,5 +259,52 @@ function drag(e) {
   
   draggableWidget.style.transform = `translate3d(${dragX}px, ${dragY}px, 0)`;
 }
+
+// --- 4. DYNAMIC DOWNLOAD LINKS UPDATE ---
+async function fetchLatestVersion() {
+  const defaultVersion = '1.2.1';
+  try {
+    const response = await fetch('https://voicetyping-updates.syarifd.com/update.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    if (data && data.version) {
+      applyVersionedDownloadLinks(data.version);
+    } else {
+      applyVersionedDownloadLinks(defaultVersion);
+    }
+  } catch (error) {
+    console.error('Failed to retrieve version tag from update.json, using fallback:', error);
+    applyVersionedDownloadLinks(defaultVersion);
+  }
+}
+
+function applyVersionedDownloadLinks(version) {
+  const releasesUrl = `https://voicetyping-updates.syarifd.com/releases/${version}`;
+
+  const links = {
+    'mac-aarch64-download': `${releasesUrl}/VoiceTyping_${version}_aarch64.dmg`,
+    'mac-x64-download': `${releasesUrl}/VoiceTyping_${version}_x64.dmg`,
+    'win-x64-exe-download': `${releasesUrl}/VoiceTyping_${version}_x64-setup.exe`,
+    'win-x64-msi-download': `${releasesUrl}/VoiceTyping_${version}_x64_en-US.msi`,
+    'win-arm64-exe-download': `${releasesUrl}/VoiceTyping_${version}_arm64-setup.exe`,
+    'win-arm64-msi-download': `${releasesUrl}/VoiceTyping_${version}_arm64_en-US.msi`,
+    'win-x86-exe-download': `${releasesUrl}/VoiceTyping_${version}_x86-setup.exe`,
+    'win-x86-msi-download': `${releasesUrl}/VoiceTyping_${version}_x86_en-US.msi`
+  };
+
+  for (const [id, url] of Object.entries(links)) {
+    const el = document.getElementById(id);
+    if (el) el.href = url;
+  }
+
+  const versionTag = document.getElementById('download-version-tag');
+  if (versionTag) {
+    versionTag.textContent = `v${version}`;
+    versionTag.classList.remove('hidden');
+  }
+}
+
 
 
