@@ -10,13 +10,45 @@
     <meta name="description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
     <meta name="keywords" content="voice typing, speech to text, dictation, rust, tauri, whisper ai, local whisper, rsi prevention, universal text overlay" />
     <meta name="author" content="VoiceTyping Team" />
-    
+    <link rel="canonical" href="https://voicetyping.syarifd.com" />
+
+    <!-- Structured Data: Schema.org WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "VoiceTyping",
+      "url": "https://voicetyping.syarifd.com",
+      "description": "An ultra-minimal, universal voice-to-text overlay engine. Completely local, private by default, and active across all apps with a single keystroke.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux",
+      "browserRequirements": "Requires HTML5 Web Speech API support",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "On-device Whisper AI voice recognition",
+        "Universal text overlay across all applications",
+        "100% offline and private processing",
+        "Cross-platform: macOS, Windows, Linux",
+        "Local and Cloud dual-engine modes"
+      ],
+      "softwareVersion": "1.0",
+      "author": {
+        "@type": "Organization",
+        "name": "VoiceTyping Team"
+      }
+    }
+    </script>
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="VoiceTyping — Universal Voice-to-Text Overlay Engine" />
     <meta property="og:description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
-    <meta property="og:url" content="https://voicetyping.ai" />
-    <meta property="og:image" content="https://voicetyping.ai/social-preview.jpg" />
+    <meta property="og:url" content="https://voicetyping.syarifd.com" />
+    <meta property="og:image" content="https://voicetyping.syarifd.com/social-preview.jpg" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -220,7 +252,7 @@
           <div class="download-grid">
             <!-- macOS -->
             <div class="download-card" id="download-mac">
-              <div class="os-icon">🍎</div>
+              <div class="os-icon" loading="lazy">🍎</div>
               <h3>macOS</h3>
               <p class="os-version">Apple Silicon & Intel Binaries</p>
               <p class="os-compat">Requires macOS 10.15+. Optimized for both ARM64 and x64 processor architectures.</p>
@@ -232,7 +264,7 @@
 
             <!-- Windows -->
             <div class="download-card" id="download-win">
-              <div class="os-icon">🪟</div>
+              <div class="os-icon" loading="lazy">🪟</div>
               <h3>Windows</h3>
               <p class="os-version">ARM & x64 Installer Packages</p>
               <p class="os-compat">Supports Windows 10/11. Optimized for ARM64 and standard x64 architectures.</p>
@@ -244,7 +276,7 @@
 
             <!-- Linux -->
             <div class="download-card" id="download-linux">
-              <div class="os-icon">🐧</div>
+              <div class="os-icon" loading="lazy">🐧</div>
               <h3>Linux</h3>
               <p class="os-version">ARM & x64 Packages (.deb / .AppImage)</p>
               <p class="os-compat">Compiled against modern X11/glibc. Supports ARM64 and Intel/AMD x64 systems.</p>

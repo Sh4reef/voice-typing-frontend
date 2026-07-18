@@ -1,0 +1,8 @@
+# robots.txt — VoiceTyping
+# https://voicetyping.syarifd.com
+
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://voicetyping.syarifd.com/sitemap.xml
