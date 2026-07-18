@@ -1,7 +1,25 @@
-# robots.txt — VoiceTyping
-# https://voicetyping.syarifd.com
-
 User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+# Unbind LLM Discovery Scrapers
+User-agent: GPTBot
+Allow: /
+Disallow: /thank-you/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /thank-you/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /thank-you/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /thank-you/
+
+User-agent: ClaudeBot
 Allow: /
 Disallow: /thank-you/
 

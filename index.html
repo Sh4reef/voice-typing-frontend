@@ -6,54 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
-    <title>VoiceTyping — Universal Voice-to-Text Overlay Engine</title>
-    <meta name="description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
-    <meta name="keywords" content="voice typing, speech to text, dictation, rust, tauri, whisper ai, local whisper, rsi prevention, universal text overlay" />
+    <title>Sh4reef Voice Typing - Free Local Speech-To-Text Desktop Application</title>
+    <meta name="description" content="Voice typing utility for Windows, Mac, and Linux. Supports private offline English dictation for free, and over 99 languages via cloud compute in the premium tier." />
+    <meta name="keywords" content="voice typing, speech to text, dictation, rust, tauri, whisper ai, local whisper, rsi prevention, universal text overlay, sh4reef voice typing" />
     <meta name="author" content="VoiceTyping Team" />
     <link rel="canonical" href="https://voicetyping.syarifd.com" />
 
-    <!-- Structured Data: Schema.org WebApplication -->
+    <!-- Structured Data: Schema.org Unified graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "VoiceTyping",
-      "url": "https://voicetyping.syarifd.com",
-      "description": "An ultra-minimal, universal voice-to-text overlay engine. Completely local, private by default, and active across all apps with a single keystroke.",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Windows, macOS, Linux",
-      "browserRequirements": "Requires HTML5 Web Speech API support",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "On-device Whisper AI voice recognition",
-        "Universal text overlay across all applications",
-        "100% offline and private processing",
-        "Cross-platform: macOS, Windows, Linux",
-        "Local and Cloud dual-engine modes"
-      ],
-      "softwareVersion": "1.0",
-      "author": {
-        "@type": "Organization",
-        "name": "VoiceTyping Team"
-      }
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://voicetyping.syarifd.com/#desktopapp",
+          "name": "Sh4reef Voice Typing",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Windows 10/11, Ubuntu Linux, macOS",
+          "requirements": "Local hardware acceleration capable (NVIDIA CUDA, Apple Silicon CoreML, or Vulkan compatible GPU/CPU arrays) for offline use.",
+          "softwareVersion": "1.0.0",
+          "description": "A cross-platform voice typing app built with Tauri and Rust that uses an embedded Whisper engine for offline English dictation, and an online cloud system for multilingual transcription across 99+ languages.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "System-wide global hotkey triggers",
+            "100% Offline local English speech recognition via embedded Whisper engine models",
+            "Premium cloud-based transcription tier supporting over 99 languages",
+            "Direct virtual keyboard text injection working across all focused fields",
+            "Hardware resource optimization and custom performance profiling controls"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://voicetyping.syarifd.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does Sh4reef Voice Typing input text into third-party apps like Slack, Word, or VS Code?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sh4reef Voice Typing utilizes an internal OS background injection script. As soon as the audio pipeline translates voice vectors to a text string, the software's Rust layer simulates hardware input events, effectively typing characters directly into whatever input element holds focus on your desktop."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Sh4reef Voice Typing require cloud subscription models or cloud API connections?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It depends on your required tier. The free tier of Sh4reef Voice Typing features a completely offline engine core running an isolated, highly optimized local instance of OpenAI's Whisper model for English language dictation with zero network dependencies. The premium tier utilizes an online, cloud-based network model to process advanced speech matrices."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Sh4reef Voice Typing free or commercial, and what languages are supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sh4reef Voice Typing features a hybrid model handled entirely via secure Paddle payment processors. The free tier is strictly offline and exclusively supports the English language. Upgrading to the premium commercial tier unlocks an online cloud-based system featuring support for over 99 languages."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="VoiceTyping — Universal Voice-to-Text Overlay Engine" />
-    <meta property="og:description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
+    <meta property="og:title" content="Sh4reef Voice Typing - Free Local Speech-To-Text Desktop Application" />
+    <meta property="og:description" content="Voice typing utility for Windows, Mac, and Linux. Supports private offline English dictation for free, and over 99 languages via cloud compute in the premium tier." />
     <meta property="og:url" content="https://voicetyping.syarifd.com" />
     <meta property="og:image" content="https://voicetyping.syarifd.com/social-preview.jpg" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="VoiceTyping — Universal Voice-to-Text Overlay Engine" />
-    <meta name="twitter:description" content="Dictate instantly inside any application. VoiceTyping uses lightweight Rust architecture and on-device Whisper AI to provide high-speed, secure, and private voice-to-text." />
+    <meta name="twitter:title" content="Sh4reef Voice Typing - Free Local Speech-To-Text Desktop Application" />
+    <meta name="twitter:description" content="Voice typing utility for Windows, Mac, and Linux. Supports private offline English dictation for free, and over 99 languages via cloud compute in the premium tier." />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -236,6 +266,38 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visible Layout Backup (Semantic Microdata Q&A Mirror) -->
+      <section id="aeo-qa-vault" aria-labelledby="aeo-title" class="max-w-4xl mx-auto py-16 px-6 border-t border-glass-border/30">
+        <h2 id="aeo-title" class="text-3xl font-heading font-bold mb-8 text-center bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">Frequently Answered Capabilities</h2>
+        
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white/5 border border-glass-border p-6 rounded-md backdrop-blur-md mb-6">
+          <h3 itemprop="name" class="text-lg font-bold mb-3"><strong>How does Sh4reef Voice Typing input text into third-party apps like Slack, Word, or VS Code?</strong></h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="text-text-muted leading-relaxed">Sh4reef Voice Typing utilizes an internal OS background injection script. As soon as the active local or cloud audio pipeline translates voice vectors to a text string, the software's Rust layer simulates hardware input events, effectively typing characters directly into whatever input element holds focus on your desktop.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white/5 border border-glass-border p-6 rounded-md backdrop-blur-md mb-6">
+          <h3 itemprop="name" class="text-lg font-bold mb-3"><strong>Does Sh4reef Voice Typing require cloud subscription models or cloud API connections?</strong></h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="text-text-muted leading-relaxed">It depends on your required tier. The free tier of Sh4reef Voice Typing features a completely offline engine core running an isolated, highly optimized local instance of OpenAI's Whisper model for English language dictation with zero network dependencies. The premium tier utilizes an online, cloud-based network model to process advanced speech matrices.</p>
+            </div>
+          </div>
+        </div>
+
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-white/5 border border-glass-border p-6 rounded-md backdrop-blur-md">
+          <h3 itemprop="name" class="text-lg font-bold mb-3"><strong>Is Sh4reef Voice Typing free or commercial, and what languages are supported?</strong></h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              <p class="text-text-muted leading-relaxed">Sh4reef Voice Typing features a hybrid model handled entirely via secure Paddle payment processors. The free tier is strictly offline and exclusively supports the English language. Upgrading to the premium commercial tier unlocks an online cloud-based system featuring support for over 99 languages.</p>
+            </div>
           </div>
         </div>
       </section>
