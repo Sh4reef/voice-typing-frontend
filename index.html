@@ -339,15 +339,26 @@
             </div>
 
             <!-- Linux -->
-            <div class="download-card opacity-60 relative overflow-hidden" id="download-linux">
-              <div class="absolute top-3 right-3 text-[10px] font-bold tracking-widest text-accent-cyan uppercase px-2 py-0.5 bg-accent-cyan/10 border border-accent-cyan/20 rounded-sm">Coming Soon</div>
-              <div class="os-icon">🐧</div>
+            <div class="download-card" id="download-linux">
+              <div class="os-icon" loading="lazy">🐧</div>
               <h3>Linux</h3>
-              <p class="os-version">ARM & x64 Packages (.deb / .AppImage)</p>
-              <p class="os-compat">Native Linux packages are currently under active development. Stay tuned for Debian, Ubuntu, and Arch system pre-compiled distributions.</p>
+              <p class="os-version">x86_64 / x64 Linux Packages</p>
+              <p class="os-compat">Supports major Linux distributions (Ubuntu, Debian, Fedora, Arch). Native pre-compiled binaries for x86_64.</p>
               
-              <div class="w-full mt-auto">
-                <button class="btn btn-secondary w-full cursor-not-allowed opacity-50" disabled>Coming Soon</button>
+              <div class="download-options-group">
+                <div class="download-option-row">
+                  <span class="option-label">64-bit (x86_64)</span>
+                  <div class="option-actions">
+                    <a href="#" class="btn btn-primary btn-sm" id="linux-x64-appimage-download">.AppImage</a>
+                    <a href="#" class="btn btn-secondary btn-sm" id="linux-x64-deb-download">.deb</a>
+                  </div>
+                </div>
+                <div class="download-option-row">
+                  <span class="option-label">ARM64</span>
+                  <div class="option-actions">
+                    <span class="text-xs text-text-muted italic">Coming Soon</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

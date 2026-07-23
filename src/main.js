@@ -56,7 +56,7 @@ function detectClientOS() {
     detectedOsLabel.textContent = 'Download for Windows (ARM / x64)';
   } else if (ua.includes('linux')) {
     activePlatform = 'linux';
-    detectedOsLabel.textContent = 'Linux support coming soon';
+    detectedOsLabel.textContent = 'Download for Linux (x86_64)';
   } else {
     activePlatform = 'mac'; // Fallback
     detectedOsLabel.textContent = 'Download for Desktop';
@@ -291,7 +291,9 @@ function applyVersionedDownloadLinks(version) {
     'win-arm64-exe-download': `${releasesUrl}/VoiceTyping_${version}_arm64-setup.exe`,
     'win-arm64-msi-download': `${releasesUrl}/VoiceTyping_${version}_arm64_en-US.msi`,
     'win-x86-exe-download': `${releasesUrl}/VoiceTyping_${version}_x86-setup.exe`,
-    'win-x86-msi-download': `${releasesUrl}/VoiceTyping_${version}_x86_en-US.msi`
+    'win-x86-msi-download': `${releasesUrl}/VoiceTyping_${version}_x86_en-US.msi`,
+    'linux-x64-appimage-download': `${releasesUrl}/VoiceTyping_${version}_amd64.AppImage`,
+    'linux-x64-deb-download': `${releasesUrl}/VoiceTyping_${version}_amd64.deb`
   };
 
   for (const [id, url] of Object.entries(links)) {
