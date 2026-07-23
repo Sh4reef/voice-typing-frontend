@@ -41,25 +41,51 @@ document.addEventListener('DOMContentLoaded', () => {
   detectClientOS();
   initWaveform();
   initDraggable();
+  initMobileNav();
+  initCopyLink();
+  initRawDownloadsToggle();
   fetchLatestVersion();
 });
 
-// --- 1. CLIENT OS DETECTION ---
+// --- 1. CLIENT OS & DEVICE DETECTION ---
+let isDesktop = true;
+
 function detectClientOS() {
   const ua = navigator.userAgent.toLowerCase();
   
-  if (ua.includes('mac')) {
-    activePlatform = 'mac';
-    detectedOsLabel.textContent = 'Download for macOS (ARM / x64)';
-  } else if (ua.includes('win')) {
-    activePlatform = 'win';
-    detectedOsLabel.textContent = 'Download for Windows (ARM / x64)';
-  } else if (ua.includes('linux')) {
-    activePlatform = 'linux';
-    detectedOsLabel.textContent = 'Download for Linux (x86_64)';
+  // Mobile / Tablet detection (iOS, Android, iPadOS touch detection)
+  const isMobileOrTablet = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua)
+    || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2 && /macintosh/i.test(ua));
+
+  const desktopGrid = document.getElementById('download-desktop-grid');
+  const mobileNotice = document.getElementById('download-mobile-notice');
+
+  if (isMobileOrTablet) {
+    isDesktop = false;
+    detectedOsLabel.textContent = 'Desktop Application Only';
+    heroCtaButton.href = '#download';
+    
+    // Switch download section UI to non-desktop notice card
+    if (desktopGrid) desktopGrid.classList.add('hidden');
+    if (mobileNotice) mobileNotice.classList.remove('hidden');
   } else {
-    activePlatform = 'mac'; // Fallback
-    detectedOsLabel.textContent = 'Download for Desktop';
+    isDesktop = true;
+    if (mobileNotice) mobileNotice.classList.add('hidden');
+    if (desktopGrid) desktopGrid.classList.remove('hidden');
+
+    if (ua.includes('mac')) {
+      activePlatform = 'mac';
+      detectedOsLabel.textContent = 'Download for macOS (ARM / x64)';
+    } else if (ua.includes('win')) {
+      activePlatform = 'win';
+      detectedOsLabel.textContent = 'Download for Windows (ARM / x64)';
+    } else if (ua.includes('linux')) {
+      activePlatform = 'linux';
+      detectedOsLabel.textContent = 'Download for Linux (x86_64)';
+    } else {
+      activePlatform = 'mac'; // Fallback
+      detectedOsLabel.textContent = 'Download for Desktop';
+    }
   }
   heroCtaButton.href = '#download';
 }
@@ -307,6 +333,85 @@ function applyVersionedDownloadLinks(version) {
     versionTag.classList.remove('hidden');
   }
 }
+
+// --- 5. MOBILE NAVIGATION DRAWER ---
+function initMobileNav() {
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  if (!toggleBtn || !mainNav) return;
+
+  toggleBtn.addEventListener('click', () => {
+    toggleBtn.classList.toggle('is-active');
+    mainNav.classList.toggle('is-open');
+  });
+
+  const navLinks = mainNav.querySelectorAll('a');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleBtn.classList.remove('is-active');
+      mainNav.classList.remove('is-open');
+    });
+  });
+}
+
+// --- 6. NON-DESKTOP NOTICE COPY LINK & RAW DOWNLOADS ---
+function initCopyLink() {
+  const btnCopy = document.getElementById('btn-copy-link');
+  if (!btnCopy) return;
+
+  btnCopy.addEventListener('click', async () => {
+    const pageUrl = window.location.href;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(pageUrl);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = pageUrl;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      showToast('Desktop link copied to clipboard!');
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+      showToast('Link ready: ' + pageUrl);
+    }
+  });
+}
+
+function showToast(message) {
+  const toast = document.getElementById('toast-notification');
+  const toastMsg = document.getElementById('toast-message');
+  if (!toast || !toastMsg) return;
+
+  toastMsg.textContent = message;
+  toast.classList.remove('hidden');
+
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3000);
+}
+
+function initRawDownloadsToggle() {
+  const btnToggle = document.getElementById('btn-toggle-raw-downloads');
+  const desktopGrid = document.getElementById('download-desktop-grid');
+
+  if (!btnToggle || !desktopGrid) return;
+
+  btnToggle.addEventListener('click', () => {
+    const isHidden = desktopGrid.classList.contains('hidden');
+    if (isHidden) {
+      desktopGrid.classList.remove('hidden');
+      btnToggle.textContent = 'Hide Raw Desktop Packages ↑';
+    } else {
+      desktopGrid.classList.add('hidden');
+      btnToggle.textContent = 'Show Raw Desktop Packages ↓';
+    }
+  });
+}
+
 
 
 

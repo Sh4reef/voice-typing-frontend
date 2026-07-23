@@ -104,10 +104,20 @@
           <img src="/logo.svg" alt="VoiceTyping Logo" class="logo-img" />
           <span class="logo-text">Voice<span class="logo-accent">Typing</span></span>
         </a>
-        <nav class="nav" aria-label="Main Navigation">
+        
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+
+        <nav class="nav" id="main-nav" aria-label="Main Navigation">
           <a href="#engine-comparison" class="nav-link">Dual-Engine</a>
-          <a href="#download" class="nav-link">Download</a>
+          <a href="#download" class="nav-link" id="nav-download-link">Download</a>
           <a href="#aeo-qa-vault" class="nav-link">FAQ</a>
+          <div class="mobile-nav-cta">
+            <a href="#download" class="btn btn-primary btn-sm btn-full">Get Desktop App</a>
+          </div>
         </nav>
         <div class="header-cta-group">
           <a href="#download" class="btn btn-secondary btn-sm">Get App</a>
@@ -282,7 +292,7 @@
             <p class="section-desc">Select the pre-compiled binary package matching your workstation architecture.</p>
           </div>
 
-          <div class="download-grid">
+          <div class="download-grid" id="download-desktop-grid">
             <!-- macOS -->
             <div class="download-card" id="download-mac">
               <div class="os-icon" loading="lazy">🍎</div>
@@ -362,6 +372,31 @@
               </div>
             </div>
           </div>
+
+          <!-- Non-Desktop Device Notice Card -->
+          <div class="download-notice-card hidden" id="download-mobile-notice">
+            <div class="notice-icon-wrapper">
+              <span class="notice-icon">🖥️</span>
+            </div>
+            <div class="notice-badge">Desktop Only Application</div>
+            <h3 class="notice-title">VoiceTyping is Built Exclusively for Desktop Devices</h3>
+            <p class="notice-desc">
+              VoiceTyping injects real-time synthetic hardware keystrokes across active application windows via Rust and runs embedded local Whisper AI models. Mobile operating systems (iOS & Android) do not support desktop system hotkey hooks or low-level keyboard simulation.
+            </p>
+            <div class="notice-supported-os">
+              <span class="os-pill">🍎 macOS 10.15+</span>
+              <span class="os-pill">🪟 Windows 10/11</span>
+              <span class="os-pill">🐧 Linux x86_64</span>
+            </div>
+            <div class="notice-actions">
+              <button class="btn btn-primary btn-md" id="btn-copy-link">
+                <span>📋</span> Copy Desktop Link to Share
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btn-toggle-raw-downloads">
+                Show Raw Desktop Packages ↓
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -418,6 +453,12 @@
         </div>
       </div>
     </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification hidden" id="toast-notification">
+      <span class="toast-icon">✓</span>
+      <span class="toast-message" id="toast-message">Copied to clipboard!</span>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>
